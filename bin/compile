@@ -19,16 +19,12 @@ $stdout.sync = true
 $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-url = "https://wordpress.org/latest.zip"
-response = RestClient::Request.execute({:url => url, :method => :get, :content_type => 'application/zip'})
-zipfile = Tempfile.new("downloaded")
-zipfile.binmode #someone suggested to use binary for tempfile
-zipfile.write(response)
-Zip::ZipFile.open(zipfile.path) do |file|
-  file.each do |content|
-    data = file.read(content)
- end
-end
+require 'open-uri'
+
+open('latest.zip', 'wb') do |fo|
+fileContent = open('https://wordpress.org/latest.zip').read
+endd
+
 
 require 'java_buildpack/buildpack'
 
