@@ -19,11 +19,14 @@ $stdout.sync = true
 $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-require 'open-uri'
-
-open('latest.zip', 'wb') do |fo|
-fileContent = open('https://wordpress.org/latest.zip').read
-endd
+   def downloadStandfordNLP
+        download('3.6.0', 'http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip') { |file| expand file }
+        #link_to(@application.root.children, root)
+        #@droplet.additional_libraries << tomcat_datasource_jar if tomcat_datasource_jar.exist?
+        #@droplet.additional_libraries.link_to web_inf_lib
+   end
+      
+downloadStandfordNLP
 
 
 require 'java_buildpack/buildpack'
