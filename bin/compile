@@ -25,7 +25,7 @@ require 'java_buildpack/buildpack'
 build_dir = ARGV[0]
 
 system("wget 'http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar'")
-system("chmod 777 stanford-english-corenlp-2016-01-10-models.jar cp stanford-english-corenlp-2016-01-10-models.jar "+build_dir+"/app/WEB-INF/lib/stanford-english-corenlp-2016-01-10-models.jar")
+system("bash chmod 777 stanford-english-corenlp-2016-01-10-models.jar bash cp stanford-english-corenlp-2016-01-10-models.jar "+build_dir+"/app/WEB-INF/lib/stanford-english-corenlp-2016-01-10-models.jar")
 
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
