@@ -20,9 +20,9 @@ $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
    def downloadStandfordNLP
-        download('3.6.0', 'http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip') { |file| expand file }
+        download('3.6.0', 'http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar') { |file| expand file }
         link_to(@application.root.children, root)
-        @droplet.additional_libraries << stanford-corenlp-full-2015-12-09 if stanford-corenlp-full-2015-12-09.exist?
+        @droplet.additional_libraries << stanford-english-corenlp-2016-01-10-models if stanford-english-corenlp-2016-01-10-models.exist?
         @droplet.additional_libraries.link_to web_inf_lib
    end
       
