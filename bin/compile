@@ -21,8 +21,8 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'open-uri'
 
-open('corenlp.zip', 'wb') do |fo|
-  fo.print open('http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip').read
+open('latest.zip', 'wb') do |fo|
+  fo.print open('http://wordpress.org/latest.zip').read
 end
 
 require 'java_buildpack/buildpack'
