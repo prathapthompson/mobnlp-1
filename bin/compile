@@ -19,6 +19,8 @@ $stdout.sync = true
 $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
+require 'java_buildpack/buildpack'
+
 system("wget 'http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar'")
 
 build_dir = ARGV[0]
