@@ -19,28 +19,10 @@ $stdout.sync = true
 $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-require 'net/http' 
-require 'uri'
-require 'zip/zip'
+require 'open-uri'
 
-url = "http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip"
-uri = URI.parse(url)
-req = Net::HTTP::Get.new(uri.path)
-filename = './test.zip'
-
-# download the zip
-File.open(filename,"wb") do |file| 
-  Net::HTTP::Proxy(proxy_host, proxy_port, proxy_user, proxy_pass).start(uri.host, uri.port) do |http|
-    http.get(uri.path) do |str|
-      file.write str
-    end
-  end
-end
-
-# and show it's contents
-Zip::ZipFile.open(filename) do |zip|
-  # zip.each { |entry| p entry.get_input_stream.read } # show contents
-  zip.each { |entry| p entry.name } # show the name of the files inside
+open('corenlp.zip', 'wb') do |fo|
+  fo.print open('http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip').read
 end
 
 require 'java_buildpack/buildpack'
