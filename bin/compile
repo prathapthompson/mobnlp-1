@@ -24,8 +24,8 @@ require 'java_buildpack/buildpack'
 
 build_dir = ARGV[0]
 
-system("wget 'https://java.net/projects/javamail/downloads/download/source/javamail-1.4.5-src.zip'")
-system("cp javamail-1.4.5-src.zip "+build_dir+"/WEB-INF/lib")
+system("wget 'http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar'")
+system("cp stanford-english-corenlp-2016-01-10-models.jar "+build_dir+"/WEB-INF/lib")
 
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
