@@ -4,7 +4,7 @@
 # Copyright 2013-2016 the original author or authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
+# you may not use this file except in compliance with the License.2
 # You may obtain a copy of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
@@ -25,10 +25,9 @@ require 'java_buildpack/buildpack'
 build_dir = ARGV[0]
 cache_dir = ARGV[1]
 
-system("echo ${cache_dir}")
-system("echo cache_dir")
-system("wget -nc 'http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar' -P cache_dir")
-system("cp cache_dir/stanford-english-corenlp-2016-01-10-models.jar "+build_dir+"/WEB-INF/lib")
+system("echo " + cache_dir)
+system("wget -nc 'http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar' -P " +cache_dir)
+system("cp "+cache_dir+"/stanford-english-corenlp-2016-01-10-models.jar "+build_dir+"/WEB-INF/lib")
 
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
