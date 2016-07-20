@@ -25,7 +25,7 @@ require 'java_buildpack/buildpack'
 build_dir = ARGV[0]
 cache_dir = ARGV[1]
 
-system("wget -nc 'http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar' -P cache_dir")
+#system("wget -nc 'http://nlp.stanford.edu/software/stanford-english-corenlp-2016-01-10-models.jar' -P cache_dir")
 system("cp cache_dir/stanford-english-corenlp-2016-01-10-models.jar "+build_dir+"/WEB-INF/lib")
 
 
